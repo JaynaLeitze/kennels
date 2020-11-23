@@ -21,10 +21,10 @@ export const AnimalList = () => {
         This effect is solely for learning purposes. The effect
         it is responding to is that the location state changed.
     */
-  useEffect(() => {
-    console.log("AnimalList: Animal state changed");
-    console.log(animals);
-  }, [animals]);
+  // useEffect(() => {
+  //   console.log("AnimalList: Animal state changed");
+  //   console.log(animals);
+  // }, [animals]);
 
   return (
     <div className="animals">
