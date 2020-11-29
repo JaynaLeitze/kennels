@@ -12,10 +12,10 @@ export const EmployeeList = (props) => {
     getEmployees();
   }, []);
 
-  useEffect(() => {
-    // console.log("LocationList: Location state changed");
-    // console.log(employees);
-  }, [employees]);
+  // useEffect(() => {
+  //   // console.log("LocationList: Location state changed");
+  //   // console.log(employees);
+  // }, [employees]);
 
   return (
     <div className="employees">
