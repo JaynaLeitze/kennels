@@ -8,21 +8,12 @@ import { CustomerProvider } from "./customer/CustomerProvider";
 import { EmployeeProvider } from "./employee/EmployeeProvider";
 import { EmployeeList } from "./employee/EmployeeList";
 import { EmployeeForm } from "./employee/EmployeeForm";
-
+import { AnimalForm } from "./animal/AnimalForm";
+import { EmployeeDetail } from "./employee/EmployeeDetail";
 export const ApplicationViews = (props) => {
   console.log(EmployeeList);
   return (
     <>
-      <AnimalProvider>
-        <LocationProvider>
-          <CustomerProvider>
-            <Route exact path="/animal">
-              <AnimalList />
-            </Route>
-          </CustomerProvider>
-        </LocationProvider>
-      </AnimalProvider>
-
       <EmployeeProvider>
         <LocationProvider>
           <AnimalProvider>
@@ -37,9 +28,30 @@ export const ApplicationViews = (props) => {
               path="/employees/create"
               render={(props) => <EmployeeForm {...props} />}
             />
+            <Route
+              path="/employees/:employeeId(\d+)"
+              render={(props) => <EmployeeDetail {...props} />}
+            />
           </AnimalProvider>
         </LocationProvider>
       </EmployeeProvider>
+
+      <CustomerProvider>
+        <LocationProvider>
+          <AnimalProvider>
+            <Route
+              exact
+              path="/animals"
+              render={(props) => <AnimalList {...props} />}
+            />
+            <Route
+              exact
+              path="/animals/create"
+              render={(props) => <AnimalForm {...props} />}
+            />
+          </AnimalProvider>
+        </LocationProvider>
+      </CustomerProvider>
 
       {/* <EmployeeProvider>
         <LocationProvider></LocationProvider>
