@@ -12,7 +12,7 @@ export const AnimalList = () => {
 
   useEffect(() => {
     console.log("AnimalList: Initial render before data");
-    getLocations().then(getCustomers).then(getAnimals);
+    getCustomers().then(getLocations).then(getAnimals);
   }, []);
 
   return (
