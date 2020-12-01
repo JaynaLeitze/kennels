@@ -2,9 +2,13 @@ import React, { useContext, useEffect } from "react";
 import { EmployeeContext } from "./EmployeeProvider";
 import { Link } from "react-router-dom";
 import "./Employee.css";
+import { AnimalContext } from "../animal/AnimalProvider";
+import { LocationContext } from "../location/LocationProvider";
 
 export const EmployeeList = (props) => {
   const { employees, getEmployees } = useContext(EmployeeContext);
+  const { animals, getAnimals } = useContext(AnimalContext);
+  const { locations, getLocations } = useContext(LocationContext);
 
   useEffect(() => {
     getEmployees();
