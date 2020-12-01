@@ -9,6 +9,8 @@ import { EmployeeProvider } from "./employee/EmployeeProvider";
 import { EmployeeList } from "./employee/EmployeeList";
 import { EmployeeForm } from "./employee/EmployeeForm";
 import { AnimalForm } from "./animal/AnimalForm";
+import { EmployeeDetail } from "./employee/EmployeeDetail";
+import { LocationDetail } from "./location/LocationDetail";
 
 export const ApplicationViews = (props) => {
   console.log(EmployeeList);
@@ -28,26 +30,41 @@ export const ApplicationViews = (props) => {
               path="/employees/create"
               render={(props) => <EmployeeForm {...props} />}
             />
+            <Route
+              path="/employees/:employeeId(\d+)"
+              render={(props) => <EmployeeDetail {...props} />}
+            />
           </AnimalProvider>
         </LocationProvider>
       </EmployeeProvider>
 
-      <CustomerProvider>
-        <LocationProvider>
-          <AnimalProvider>
-            <Route
-              exact
-              path="/animals"
-              render={(props) => <AnimalList {...props} />}
-            />
-            <Route
-              exact
-              path="/animals/create"
-              render={(props) => <AnimalForm {...props} />}
-            />
-          </AnimalProvider>
-        </LocationProvider>
-      </CustomerProvider>
+      <EmployeeProvider>
+        <CustomerProvider>
+          <LocationProvider>
+            <AnimalProvider>
+              <Route
+                exact
+                path="/animals"
+                render={(props) => <AnimalList {...props} />}
+              />
+              <Route
+                exact
+                path="/animals/create"
+                render={(props) => <AnimalForm {...props} />}
+              />
+              <Route
+                exact
+                path="/locations"
+                render={(props) => <LocationList {...props} />}
+              />
+              <Route
+                path="/locations/:locationId(\d+)"
+                render={(props) => <LocationDetail {...props} />}
+              />
+            </AnimalProvider>
+          </LocationProvider>
+        </CustomerProvider>
+      </EmployeeProvider>
 
       {/* <EmployeeProvider>
         <LocationProvider></LocationProvider>
