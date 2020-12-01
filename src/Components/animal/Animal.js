@@ -1,12 +1,12 @@
 import React from "react";
 import "./Animal.css";
+import { Link } from "react-router-dom";
 
-//access data from database
-export const Animal = ({ animal, customer, location }) => (
+export const Animal = ({ animal }) => (
   <section className="animal">
-    <h3 className="animal__name">{animal.name}</h3>
+    <h3 className="animal__name">
+      <Link to={`/animals/${animal.id}`}>{animal.name}</Link>
+    </h3>
     <div className="animal__breed">{animal.breed}</div>
-    <div className="animal__location">{location.name}</div>
-    {/* <div className="animal__owner">{customer.name}</div> */}
   </section>
 );
