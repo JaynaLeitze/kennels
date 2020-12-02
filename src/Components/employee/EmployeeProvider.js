@@ -27,6 +27,11 @@ export const EmployeeProvider = (props) => {
       body: JSON.stringify(employee),
     }).then(getEmployees);
   };
+  const removeEmployee = (employeeId) => {
+    return fetch(`http://localhost:8088/employees/${employeeId}`, {
+      method: "DELETE",
+    }).then(getEmployees);
+  };
 
   return (
     <EmployeeContext.Provider
@@ -34,6 +39,7 @@ export const EmployeeProvider = (props) => {
         employees,
         addEmployee,
         getEmployees,
+        removeEmployee,
       }}
     >
       {props.children}
